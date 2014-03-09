@@ -4,4 +4,4 @@ markdown: redcarpet
 
 permalink: /results/:title
 
-exclude: ["Gemfile", "Gemfile.lock", "README.md", "Rakefile", "config"]
+exclude: ["Gemfile", "Gemfile.lock", "README.md", "Rakefile", "config", "Procfile"]
