@@ -1,7 +1,11 @@
 name: Twitter Most Followed
 markdown: redcarpet
-
-
 permalink: /results/:title
-
-exclude: ["Gemfile", "Gemfile.lock", "README.md", "Rakefile", "config", "Procfile", "vendor/"]
+exclude:
+ - unicorn.rb
+ - README.md
+ - Procfile
+ - Gemfile
+ - Gemfile.lock
+ - config.ru
+ - vendor

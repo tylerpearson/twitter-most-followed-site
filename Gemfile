@@ -1,6 +1,5 @@
 source "https://rubygems.org"
 
-gem 'thin'
-gem 'RedCloth'
+gem 'unicorn'
 gem 'jekyll'
 gem "rack-jekyll"
