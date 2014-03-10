@@ -1,5 +1,4 @@
 require "rake"
-require 'stringex'
 require 'fileutils'
 
 source_dir = "./"
