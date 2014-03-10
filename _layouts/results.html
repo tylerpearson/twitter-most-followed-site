@@ -6,11 +6,14 @@ layout: default
     <h1 class="title">The most commonly followed Twitter accounts by {{ page.title }}</h1>
 
     <div class="intro-content">
-        {{ content }}
 
-        <p>The code used to <a href="https://github.com/tylerpearson/twitter-most-followed-scripts">analyze the list</a> and <a href="https://github.com/tylerpearson/twitter-most-followed">display the results</a> is on Github. Please feel free to fork and send a pull request if you use the scripts with any other interesting lists.</p>
+        <div class="content">
+            {{ content }}
 
-        <p>The script takes a few hours to run due to Twitter's API limits, so these results aren't realtime. The results were last updated {{ page.date | date_to_string }}.</p>
+            <p>The code used to <a href="https://github.com/tylerpearson/twitter-most-followed-scripts">analyze the list</a> and <a href="https://github.com/tylerpearson/twitter-most-followed">display the results</a> is on Github. Please feel free to fork and send a pull request if you use the scripts with any other interesting lists.</p>
+
+            <p>The script takes a few hours to run due to Twitter's API limits, so these results aren't realtime. The results were last updated {{ page.date | date_to_string }}.</p>
+        </div>
     </div>
 </header>
 

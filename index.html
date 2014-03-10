@@ -1,11 +1,26 @@
 ---
 layout: default
-title: Index - Twitter Most Followed
+title: Most commonly followed Twitter accounts
+html_title: Most commonly followed Twitter accounts
 ---
 
-<h1>The most commonly followed Twitter accounts by</h1>
-<ul class="posts">
-    {% for post in site.posts %}
-    <li><a href="{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
-</ul>
+
+<div class="home-intro">
+    <h1>The most commonly followed Twitter accounts by various groups of people</h1>
+
+    <div class="content">
+        <p>The code used to <a href="https://github.com/tylerpearson/twitter-most-followed-scripts">analyze the list</a> and <a href="https://github.com/tylerpearson/twitter-most-followed">display the results</a> is on Github. Please feel free to fork and send a pull request if you use the scripts with any other interesting lists.</p>
+    </div>
+
+    <ul class="posts">
+        {% for post in site.posts %}
+        <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+        {% endfor %}
+    </ul>
+
+    <hr>
+
+    <div class="content">
+        <p class="credit">Created by <a href="http://tylerp.me">Tyler Pearson</a>.</p>
+    </div>
+</div>

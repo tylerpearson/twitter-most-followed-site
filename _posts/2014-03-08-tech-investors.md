@@ -1,6 +1,7 @@
 ---
 layout: results
 title:  "Tech investors"
+html_title: "The most commonly followed Twitter accounts by tech investors"
 date:   2014-03-08 16:00:00
 results: investors
 total_count_accounts: 507

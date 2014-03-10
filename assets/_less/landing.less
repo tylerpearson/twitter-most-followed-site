@@ -1,6 +1,9 @@
 @blue-twitter: #4099FF;
 @green: #76d17f;
 
+@header-font: 'Muli', sans-serif;
+@body-font: "proxima nova", "helvetica neue", sans-serif;
+
 .optimize {
     text-rendering: optimizeLegibility;
 }
@@ -19,8 +22,12 @@
 
 body {
     color: #333;
-    font-family: 'Muli', sans-serif;
-    font-weight: 100;
+    font-family: @body-font;
+    font-weight: 400;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: @header-font;
 }
 
 a {
@@ -54,8 +61,11 @@ a {
     }
 
     .intro-content {
-        line-height: 1.66;
         max-width: 700px;
+    }
+
+    .content {
+        line-height: 1.66;
         p {
             font-family: "proxima nova", "helvetica neue", helvetica, sans-serif;
             font-weight: 400;
@@ -83,6 +93,7 @@ a {
         float: left;
         padding: 10px 1%;
         border-top: solid 1px darken(#f8f8f8,10%);
+        font-family: @header-font;
     }
 
         .meta-title {
@@ -115,6 +126,8 @@ a {
         border-top: solid 1px #fff;
         border-left: solid 1px darken(#f8f8f8,12%);
         text-shadow: 0 1px 1px rgba(255,255,255,0.9);
+        font-weight: 100;
+        font-family: @header-font;
     }
 
     .percentage-bar {
