@@ -3,12 +3,12 @@ layout: default
 ---
 
 <header class="header">
-    <h1 class="title">The most commonly followed Twitter accounts by {{ page.title | downcase }}</h1>
+    <h1 class="title">The most commonly followed Twitter accounts by {{ page.title }}</h1>
 
     <div class="intro-content">
         {{ content }}
 
-        <p>The code used to <a href="https://github.com/tylerpearson/twitter-most-followed">analyze the list</a> and <a href="https://github.com/tylerpearson/twitter-most-followed-results">display the results</a> is on Github. Please feel free to fork and send a pull request if you analyze any other interesting lists.</p>
+        <p>The code used to <a href="https://github.com/tylerpearson/twitter-most-followed-scripts">analyze the list</a> and <a href="https://github.com/tylerpearson/twitter-most-followed">display the results</a> is on Github. Please feel free to fork and send a pull request if you use the scripts with any other interesting lists.</p>
 
         <p>The script takes a few hours to run due to Twitter's API limits, so these results aren't realtime. The results were last updated {{ page.date | date_to_string }}.</p>
     </div>
@@ -18,7 +18,6 @@ layout: default
 {% for group in site.data.[page.results].following %}
     <li class="group">
         <div class="group-meta">
-
             <h2 class="meta-title">{% percentage %}<span class="small-percentage">%</span></h2>
             <p class="meta-title-secondary">{{ group.following_count }} of {{ page.total_count_accounts }}</p>
         </div>
@@ -28,8 +27,8 @@ layout: default
                 {% for person in group.accounts %}
                     <li class="person" id="@{{ person.username }}">
                         <div class="person-avatar-wrap">
-                            <img class="js-lazy avatar" src="/assets/images/350.gif" alt="{{ person.name }}" data-original="{{ person.image_url }}"  width="40" height="40">
-                        </div><!--end .person-avatar-wrap-->
+                            <img class="js-lazy avatar" src="/assets/images/350.gif" alt="{{ person.name }}" data-original="{{ person.image_url }}" width="40" height="40">
+                        </div>
                         <div class="person-info">
                             <h3 class="person-title"><a href="https://twitter.com/intent/user?user_id={{ person.twitter_id }}" target="_blank">{{ person.name }} <span class="person-username">(@{{ person.username }})</span></a></h3>
                             <div class="person-description">
