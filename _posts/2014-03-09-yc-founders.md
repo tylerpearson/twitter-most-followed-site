@@ -1,7 +1,7 @@
 ---
 layout: results
 title:  "YC company founders"
-html_title: "The most commonly followed Twitter accounts by YC company founders"
+html_title: "The 1000 most commonly followed Twitter accounts by YC company founders"
 date:   2014-03-09 16:00:00
 results: yc-founders
 total_count_accounts: 390
