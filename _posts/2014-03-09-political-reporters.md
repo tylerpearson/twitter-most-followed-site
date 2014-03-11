@@ -7,4 +7,4 @@ results: political-reporters
 total_count_accounts: 387
 ---
 
-This is a look at what Twitter accounts are most commonly followed by the 387 political reporters listed on Matt Lewis' [Top Political Journalists Twitter list](https://twitter.com/Scobleizer/lists/tech-investors).
+This is a look at what Twitter accounts are most commonly followed by the 387 political reporters listed on Matt Lewis' [Top Political Journalists Twitter list](https://twitter.com/mattklewis/lists/political-journalists).
