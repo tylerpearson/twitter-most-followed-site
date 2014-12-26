@@ -1,7 +1,7 @@
 ---
 layout: results
 title:  "World Leaders"
-html_title: "The 1000 most commonly followed Twitter accounts by world leaders"
+html_title: "The 1,000 most commonly followed Twitter accounts by world leaders"
 date:   2014-12-26 11:00:00
 results: world-leaders
 total_count_accounts: 66
