@@ -2,4 +2,4 @@ _site
 .DS_Store
 results-2018
 _data/
-_results-json/
+results-json/
