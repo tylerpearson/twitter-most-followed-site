@@ -1,8 +1,8 @@
 @blue-twitter: #4099FF;
 @green: #76d17f;
 
-@header-font: 'Muli', sans-serif;
-@body-font: "proxima-nova", "helvetica neue", sans-serif;
+@header-font: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu;
+@body-font: @header-font;
 
 .optimize {
     text-rendering: optimizeLegibility;
@@ -23,7 +23,6 @@
 body {
     color: #333;
     font-family: @body-font;
-    font-weight: 400;
 }
 
 h1, h2, h3, h4, h5 {
@@ -49,7 +48,7 @@ a {
     .title {
         font-size: 26px;
         .optimize;
-        font-weight: 700;
+        font-weight: bold;
     }
 
     .btn {
@@ -68,7 +67,6 @@ a {
         line-height: 1.66;
         p {
             font-family: "proxima-nova", "helvetica neue", helvetica, sans-serif;
-            font-weight: 400;
             a {
                 border-bottom: solid 1px @blue-twitter;
                 text-decoration: none;

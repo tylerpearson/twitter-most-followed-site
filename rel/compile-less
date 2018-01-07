@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -e
+
+mkdir -p assets/css/
+lessc assets/_less/all.less -x > assets/css/site.min.css
+echo "Finished compiling"

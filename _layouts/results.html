@@ -3,53 +3,46 @@ layout: default
 ---
 
 <header class="header">
-    <h1 class="title">{{ page.html_title }}</h1>
+  <h1 class="title">{{ page.html_title }}</h1>
 
-    <div class="intro-content">
+  <div class="intro-content">
+    <div class="content">
+      {{ content }}
 
-        <div class="content">
-            {{ content }}
+      <p>The script takes a few hours to run due to Twitter's API limits, so these results aren't realtime. The results were last updated {{ site.data[page.results].finished_at_formatted }}.</p>
 
-            <p>The script takes a few hours to run due to Twitter's API limits, so these results aren't realtime. The results were last updated {{ page.date | date_to_string }}.</p>
+      <p>Created by <a href="http://twitter.com/tylerpearson">Tyler Pearson</a>. The code used to <a href="https://github.com/tylerpearson/twitter-most-followed-scripts">analyze the list</a> and <a href="https://github.com/tylerpearson/twitter-most-followed">display the results</a> is on Github.</p>
 
-            <p>Created by <a href="http://twitter.com/tylerpearson">Tyler Pearson</a>. The code used to <a href="https://github.com/tylerpearson/twitter-most-followed-scripts">analyze the list</a> and <a href="https://github.com/tylerpearson/twitter-most-followed">display the results</a> is on Github.</p>
-
-            <a href="https://twitter.com/TylerPearson" class="twitter-follow-button" data-show-count="false">Follow @TylerPearson</a>
-            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-
-            <a href="https://twitter.com/share" class="twitter-share-button" data-via="TylerPearson">Tweet</a>
-            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-
-            <p><a href="/">View other lists &raquo;</a><p>
-        </div>
+      <p><a href="/">View other lists &raquo;</a><p>
     </div>
+  </div>
 </header>
 
 <ul class="group-list">
-{% for group in site.data.[page.results].following %}
-    <li class="group">
-        <div class="group-meta">
-            <h2 class="meta-title">{% percentage %}<span class="small-percentage">%</span></h2>
-            <p class="meta-title-secondary">{{ group.following_count }} of {{ page.total_count_accounts }}</p>
-        </div>
-        <div class="group-content">
-            <div data-width="{% percentage %}%" class="percentage-bar"></div>
-            <ul class="person-list">
-                {% for person in group.accounts %}
-                    <li class="person" id="@{{ person.username }}">
-                        <div class="person-avatar-wrap">
-                            <img class="js-lazy avatar" src="/assets/images/350.gif" alt="{{ person.name }}" data-original="{{ person.image_url }}" width="40" height="40">
-                        </div>
-                        <div class="person-info">
-                            <h3 class="person-title"><a href="https://twitter.com/intent/user?user_id={{ person.twitter_id }}" target="_blank">{{ person.name }} <span class="person-username">(@{{ person.username }})</span></a></h3>
-                            <div class="person-description">
-                                <p>{{ person.description }}</p>
-                             </div>
-                        </div>
-                    </li>
-                {% endfor %}
-            </ul>
-        </div>
-    </li>
+{% for group in site.data[page.results].following %}
+  <li class="group">
+    <div class="group-meta">
+      <h2 class="meta-title">{% percentage %}<span class="small-percentage">%</span></h2>
+      <p class="meta-title-secondary">{{ group.following_count }} of {{ site.data[page.results].list_length }}</p>
+    </div>
+    <div class="group-content">
+      <div data-width="{% percentage %}%" class="percentage-bar"></div>
+        <ul class="person-list">
+          {% for person in group.accounts %}
+            <li class="person" id="@{{ person.username }}">
+              <div class="person-avatar-wrap">
+                <img class="js-lazy avatar" src="/assets/images/350.gif" alt="{{ person.name }}" data-original="{{ person.image_url }}" width="40" height="40">
+              </div>
+              <div class="person-info">
+                <h3 class="person-title"><a href="https://twitter.com/intent/user?user_id={{ person.twitter_id }}" target="_blank">{{ person.name }} <span class="person-username">(@{{ person.username }})</span></a></h3>
+                <div class="person-description">
+                  <p>{{ person.description }}</p>
+                </div>
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+    </div>
+  </li>
 {% endfor %}
 </ul>

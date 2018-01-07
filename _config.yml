@@ -2,10 +2,10 @@ name: Twitter Most Followed
 markdown: redcarpet
 permalink: /results/:title
 exclude:
- - unicorn.rb
  - README.md
- - Procfile
  - Gemfile
  - Gemfile.lock
- - config.ru
  - vendor
+ - rel
+ - LICENSE
+ - scripts
