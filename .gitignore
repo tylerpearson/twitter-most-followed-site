@@ -1,5 +1,5 @@
 _site
 .DS_Store
-results-2018
 _data/
 results-json/
+.env

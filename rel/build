@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+set -e
+
+echo "Building..."
+docker build -f rel/dockerfiles/Dockerfile.deploy \
+             -t tylerpearson/twitter-most-followed-site-deploy .
+
+echo "Pushing..."
+docker push tylerpearson/twitter-most-followed-site-deploy

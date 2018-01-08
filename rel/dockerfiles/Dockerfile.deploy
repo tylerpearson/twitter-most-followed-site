@@ -1,0 +1,21 @@
+FROM ruby:2.4
+
+RUN mkdir /app
+WORKDIR /app
+
+RUN apt-get update && \
+    apt-get install -y python-pip python-dev build-essential  && \
+    pip install awscli json2yaml
+
+RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - && \
+    apt-get install -y nodejs && \
+    npm install -g less
+
+COPY Gemfile /app/Gemfile
+COPY Gemfile.lock /app/Gemfile.lock
+
+RUN bundle install
+
+COPY . /app
+
+CMD ["./rel/build-deploy"]

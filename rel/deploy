@@ -2,33 +2,4 @@
 
 set -e
 
-S3_BUCKET="s3://tmf.tylerp.me/"
-S3_BUCKET_RESULTS_PATH="results-json"
-
-tempfile=$(mktemp)
-
-echo "Compiling LESS into CSS"
-./rel/compile-less
-
-echo "Syncing results that exist in our S3 bucket to local..."
-aws s3 sync $S3_BUCKET$S3_BUCKET_RESULTS_PATH $S3_BUCKET_RESULTS_PATH
-
-echo "Converting latest results to yaml..."
-echo "Converting NYT..."
-docker run -v $(pwd)/results-json:/results-json \
-           -v $(pwd)/_data:/_data \
-          convert-json-to-md:latest \
-          /results-json/nytimes-nyt-journalists-results.json /_data/nyt.yml
-
-echo "Building site..."
-JEKYLL_ENV=production bundle exec jekyll build
-
-echo "Removing .html extension"
-find _site/ -type f ! -iname 'index.html' -iname '*.html' -print0 | while read -d $'\0' f; do mv "$f" "${f%.html}"; done
-
-echo "Copying files to server..."
-echo "NOTE: EVERYTHING IN THIS DIRECTORY WILL HAVE PUBLIC READ PERMISSIONS"
-aws s3 sync _site/ $S3_BUCKET --size-only --exclude "*" --delete --include "*.*" --acl public-read | tee -a $tempfile
-
-echo "Copying files with content type..."
-aws s3 sync _site/ $S3_BUCKET --size-only --content-type text/html --exclude "*.*" --delete --acl public-read | tee -a $tempfile
+docker run --env-file=.env tylerpearson/twitter-most-followed-site-deploy:latest
