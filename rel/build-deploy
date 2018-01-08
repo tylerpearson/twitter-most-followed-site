@@ -17,6 +17,12 @@ json2yaml results-json/nytimes-nyt-journalists-results.json _data/nyt.yml
 echo "Converting Washington Post..."
 json2yaml results-json/washingtonpost-washington-post-people-results.json _data/wapo.yml
 
+echo "Converting WSJ..."
+json2yaml results-json/WSJ-wsj-staff-results.json _data/wsj.yml
+
+echo "Converting LA Times..."
+json2yaml results-json/latimes-lat-staff-sections-results.json _data/latimes.yml
+
 echo "Building site..."
 JEKYLL_ENV=production bundle exec jekyll build
 
@@ -29,3 +35,7 @@ aws s3 sync _site/ $S3_BUCKET --size-only --exclude "*" --delete --include "*.*"
 
 echo "Copying files with content type..."
 aws s3 sync _site/ $S3_BUCKET --size-only --content-type text/html --exclude "*.*" --delete --acl public-read | tee -a $tempfile
+
+echo "Invalidating Cloudfront cache..."
+aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_ID \
+  --paths /\*
