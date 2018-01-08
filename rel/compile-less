@@ -3,5 +3,5 @@
 set -e
 
 mkdir -p assets/css/
-lessc assets/_less/all.less -x > assets/css/site.min.css
+lessc assets/_less/all.less -x > assets/css/styles.css
 echo "Finished compiling"
