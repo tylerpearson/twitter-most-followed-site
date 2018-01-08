@@ -31,7 +31,7 @@ layout: default
           {% for person in group.accounts %}
             <li class="person" id="@{{ person.username }}">
               <div class="person-avatar-wrap">
-                <img class="js-lazy avatar" src="/assets/images/350.gif" alt="{{ person.name }}" data-original="{{ person.image_url }}" width="40" height="40">
+                <img class="js-lazy avatar" src="/assets/images/350.gif" alt="{{ person.name }}" data-original="{{ person.image_url | replace_first: 'http', 'https' }}" width="40" height="40">
               </div>
               <div class="person-info">
                 <h3 class="person-title"><a href="https://twitter.com/intent/user?user_id={{ person.twitter_id }}" target="_blank">{{ person.name }} <span class="person-username">(@{{ person.username }})</span></a></h3>

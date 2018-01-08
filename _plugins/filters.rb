@@ -7,7 +7,7 @@ module Jekyll
     end
 
     def render(context)
-      @percentage = ((context['group.following_count'].to_f / context['page.total_count_accounts'].to_f) * 100).round(1)
+      @percentage = ((context['group.following_count'].to_f / context['site.data[page.results].list_length'].to_f) * 100).round(1)
       "#{@percentage}"
     end
   end

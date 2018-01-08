@@ -14,6 +14,9 @@ echo "Converting latest results to yaml..."
 echo "Converting NYT..."
 json2yaml results-json/nytimes-nyt-journalists-results.json _data/nyt.yml
 
+echo "Converting Washington Post..."
+json2yaml results-json/washingtonpost-washington-post-people-results.json _data/wapo.yml
+
 echo "Building site..."
 JEKYLL_ENV=production bundle exec jekyll build
 
